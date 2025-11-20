@@ -9,6 +9,7 @@ def create_app():
     
     app.config['UPLOAD_FOLDER'] = os.path.join(project_root, 'uploads')
     app.config['OUTPUT_FOLDER'] = os.path.join(project_root, 'outputs')
+    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 # 16 MB limit
     app.secret_key = 'super_secret_key_for_session' 
     
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
