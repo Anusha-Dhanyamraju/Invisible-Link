@@ -1,0 +1,4 @@
+PilFlask
+cryptography
+Pillow
+gunicorn

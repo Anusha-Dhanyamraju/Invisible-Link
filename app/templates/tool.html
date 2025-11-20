@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+    <h1>Invisible Ink 🔮</h1>
+    <p>Hide secrets in plain sight!</p>
+</header>
+
+<div class="tabs">
+    <button class="tab-btn active" onclick="openTab('hide')">Hide Secret 🙈</button>
+    <button class="tab-btn" onclick="openTab('reveal')">Reveal Secret 🔍</button>
+</div>
+
+<div id="hide" class="tab-content active">
+    <div class="card">
+        <div class="upload-area" id="hide-upload">
+            <p>Drop image here or click to upload</p>
+            <input type="file" id="hide-file" accept="image/*" hidden>
+        </div>
+        <img id="hide-preview" class="preview-img" hidden>
+
+        <textarea id="hide-message" placeholder="Write your secret message here... 🤫"></textarea>
+        <input type="password" id="hide-password" placeholder="Password (Optional) 🔒">
+
+        <button class="action-btn" onclick="hideMessage()">✨ Cast Spell (Hide)</button>
+        <div id="hide-result" class="result-area"></div>
+    </div>
+</div>
+
+<div id="reveal" class="tab-content">
+    <div class="card">
+        <div class="upload-area" id="reveal-upload">
+            <p>Drop secret image here</p>
+            <input type="file" id="reveal-file" accept="image/*" hidden>
+        </div>
+        <img id="reveal-preview" class="preview-img" hidden>
+
+        <input type="password" id="reveal-password" placeholder="Enter Password 🔑">
+
+        <button class="action-btn" onclick="revealMessage()">🔓 Unlock Secret</button>
+
+        <div id="lockout-timer" class="lockout-msg" hidden>
+            🚫 Too many wrong guesses! Locked for <span id="timer">30</span>s
+        </div>
+
+        <div id="reveal-result" class="result-area"></div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="about-container">
+    <h1>How It Works 🧠</h1>
+
+    <div class="card about-card">
+        <h2>Least Significant Bit (LSB) Steganography</h2>
+        <p>Digital images are made of pixels. Each pixel has Red, Green, and Blue (RGB) values, typically ranging from 0
+            to 255.</p>
+        <p>The number <strong>255</strong> in binary is <code>11111111</code>.</p>
+        <p>If we change the last bit (the "Least Significant Bit") to <code>0</code>, the value becomes
+            <strong>254</strong> (<code>11111110</code>). This change is so small that the human eye cannot see the
+            difference in color.</p>
+
+        <div class="diagram">
+            <div class="pixel original">
+                <span>R: 1111111<span class="lsb">1</span></span>
+                <small>Original (255)</small>
+            </div>
+            <div class="arrow">➡️</div>
+            <div class="pixel modified">
+                <span>R: 1111111<span class="lsb highlight">0</span></span>
+                <small>Modified (254)</small>
+            </div>
+        </div>
+
+        <p>We use this trick to hide your message (converted to binary) inside these invisible bits across thousands of
+            pixels!</p>
+    </div>
+
+    <div class="card about-card">
+        <h2>AES-GCM Encryption 🔐</h2>
+        <p>Before we hide your message, we encrypt it using <strong>AES-GCM</strong> (Advanced Encryption Standard -
+            Galois/Counter Mode).</p>
+        <p>This ensures two things:</p>
+        <ul>
+            <li><strong>Confidentiality:</strong> Only someone with the password can read it.</li>
+            <li><strong>Integrity:</strong> If the image is tampered with, the decryption will fail instead of showing
+                garbage data.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

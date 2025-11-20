@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <h1>Hide Secrets in <span class="highlight">Plain Sight</span></h1>
+    <p class="hero-text">The ultimate steganography tool for the modern spy. Secure your messages with military-grade
+        encryption, hidden inside innocent images.</p>
+
+    <div class="cta-group">
+        <a href="{{ url_for('main.tool') }}" class="action-btn cta-btn">Start Hiding 🕵️‍♂️</a>
+        <a href="{{ url_for('main.about') }}" class="secondary-btn">Learn How 📚</a>
+    </div>
+</div>
+
+<div class="features-grid">
+    <div class="feature-card">
+        <div class="icon">🔒</div>
+        <h3>AES-GCM Encryption</h3>
+        <p>Your secrets are locked with military-grade encryption before they even touch the pixels.</p>
+    </div>
+    <div class="feature-card">
+        <div class="icon">👁️</div>
+        <h3>Invisible Changes</h3>
+        <p>We modify the Least Significant Bits (LSB) so the image looks exactly the same to the human eye.</p>
+    </div>
+    <div class="feature-card">
+        <div class="icon">⚡</div>
+        <h3>Instant Processing</h3>
+        <p>Hide and reveal messages in milliseconds. No traces left behind.</p>
+    </div>
+</div>
+{% endblock %}
