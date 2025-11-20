@@ -82,9 +82,9 @@ def reveal():
     
     filename = secure_filename(file.filename)
     input_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
-    file.save(input_path)
     
     try:
+        file.save(input_path)
         hidden_data = stego.decode_message(input_path)
         if not hidden_data:
              return jsonify({'message': 'No hidden message found.'})
