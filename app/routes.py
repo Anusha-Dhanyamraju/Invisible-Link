@@ -96,13 +96,15 @@ def reveal():
                 decrypted = crypto.decrypt(hidden_data[4:], password)
                 if ip in lockout_store: lockout_store[ip] = {'attempts': 0, 'lockout_until': 0}
                 return jsonify({'message': decrypted})
-            except:
+            except Exception as e:
+                print(f"Decryption error: {e}") # Log it
                 if record_failure(ip): return jsonify({'error': 'LOCKED_OUT', 'remaining': 30}), 403
                 return jsonify({'error': 'WRONG_PASSWORD'}), 401
         else:
             return jsonify({'message': hidden_data})
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        print(f"Reveal error: {e}") # Log it
+        return jsonify({'error': f"Server Error: {str(e)}"}), 500
 
 @bp.route('/download/<filename>')
 def download_file(filename):
