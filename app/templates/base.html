@@ -19,17 +19,35 @@
             <a href="{{ url_for('main.tool') }}">Tool</a>
             <a href="{{ url_for('main.about') }}">About</a>
         </div>
-    </nav>
+        <!DOCTYPE html>
+        <html lang="en">
 
-    <div class="container">
-        {% block content %}{% endblock %}
-    </div>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Invisible Ink 🕵️‍♀️✨</title>
+            <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+            <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap"
+                rel="stylesheet">
+        </head>
 
-    <footer>
-        <p>© 2025 Invisible Ink Project. Keep it secret. 🤫</p>
-    </footer>
+        <body>
+            <canvas id="particles"></canvas>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
+            <nav class="navbar">
+                <div class="logo">Invisible Ink 🔮</div>
+                <div class="nav-links">
+                    <a href="{{ url_for('main.home') }}">Home</a>
+                    <a href="{{ url_for('main.tool') }}">Tool</a>
+                    <a href="{{ url_for('main.about') }}">About</a>
+                </div>
+            </nav>
 
-</html>
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
+
+            <script src="{{ url_for('static', filename='script.js') }}"></script>
+        </body>
+
+        </html>
